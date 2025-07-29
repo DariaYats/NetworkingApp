@@ -12,13 +12,12 @@ import Foundation
 class Contact {
     var id: UUID
     var name: String
-    var image: URL
+    var imageName: String
 
-    init(id: UUID, name: String, image: URL) {
+    init(id: UUID, name: String, imageName: String) {
         self.id = id
         self.name = name
-        self.image = image
+        self.imageName = imageName
     }
 }
-
 
