@@ -10,6 +10,10 @@ import SwiftUI
 struct PhotoPickerView: UIViewControllerRepresentable {
     let didPickImage: (UIImage?) -> Void
 
+    init(didPickImage: @escaping (UIImage?) -> Void) {
+        self.didPickImage = didPickImage
+    }
+
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
         config.filter = .images
@@ -33,7 +37,6 @@ struct PhotoPickerView: UIViewControllerRepresentable {
         }
 
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            picker.dismiss(animated: true)
             guard let provider = results.first?.itemProvider else { return }
 
               if provider.canLoadObject(ofClass: UIImage.self) {
