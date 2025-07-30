@@ -61,6 +61,6 @@ struct AddContactView: View {
     }
 }
 
-#Preview {
-    AddContactView(image: .example)
-}
+//#Preview {
+//    AddContactView(image: contact.image)
+//}

@@ -31,10 +31,13 @@ struct ContentView: View {
                                 Image(uiImage: image)
                                     .resizable()
                                     .scaledToFit()
+                                    .frame(width: 120, height: 120)
                             }
 
-                            Text(contact.name)
-                                .font(.subheadline)
+                            VStack {
+                                Text(contact.name)
+                                    .font(.subheadline)
+                            }
                         }
                     }
                 }
