@@ -12,6 +12,7 @@ struct DetailView: View {
     let contact: Contact
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
+    @State private var isPresentedDeleteAlert: Bool = false
 
     var body: some View {
         VStack(spacing: 50) {
@@ -26,8 +27,14 @@ struct DetailView: View {
         }
         .toolbar {
             Button("Delete contact", systemImage: "trash") {
+                isPresentedDeleteAlert = true
+            }
+        }
+        .alert("Are you sure you want to delete this contact?", isPresented: $isPresentedDeleteAlert) {
+            Button("Delete") {
                 deleteContact()
             }
+            Button("Cancel", role: .cancel) { }
         }
 
     }
